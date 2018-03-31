@@ -1,10 +1,9 @@
 <?php
 
-use App\Category;
-use App\Product;
-use App\Seller;
-use App\Transaction;
 use App\User;
+use App\Product;
+use App\Category;
+use App\Transaction;
 use Faker\Generator as Faker;
 
 /*
@@ -51,7 +50,7 @@ $factory->define(Product::class, function (Faker $faker) {
 
 $factory->define(Transaction::class, function (Faker $faker) {
 
-    $seller = Seller::has('products')->get()->random();
+    $seller = \App\Seller::has('products')->get()->random();
     $buyer = User::all()->except($seller->id)->random();
     return [
         'name' => $faker->word,
