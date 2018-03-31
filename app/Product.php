@@ -9,7 +9,7 @@ class Product extends Model
     const PRODUCT_AVAILABLE = 'available';
     const PRODUCT_UNAVAILABLE = 'unavailable';
 
-    private $fillable = [
+    protected $fillable = [
         'name',
         'description',
         'quantity',

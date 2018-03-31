@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    private $fillable = [
+    protected $fillable = [
         'quantity',
         'buyer_id',
-        'seller_id',
+        'product_id',
     ];
 
     public function buyers()
