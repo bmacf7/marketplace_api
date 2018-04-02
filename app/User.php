@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -21,6 +21,21 @@ class User extends Authenticatable
     const REGULAR_USER = 'false';
 
     protected $table = 'users';
+
+    public function setNameAttribute($nameValue)
+    {
+        $this->attributes['name'] = strtolower($nameValue);
+    }
+
+    public function getNameAttribute($nameValue)
+    {
+        return ucwords($nameValue);
+    }
+
+    public function setEmailAttribute($emailValue)
+    {
+        $this->attributes['email'] = strtolower($emailValue);
+    }
 
     protected $fillable = [
         'name',
